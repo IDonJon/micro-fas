@@ -21,3 +21,9 @@ spring:
         show_sql: true
         use_sql_comment: false
         format_sql: false
+
+  # Eureka Client
+  eureka:
+    client:
+      serviceUrl:
+        defaultZone: http://localhost:8099/eureka/
