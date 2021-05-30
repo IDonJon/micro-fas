@@ -56,7 +56,7 @@ public class IngredientServiceImpIntegrationTest {
 
     @Test
     @DisplayName("When Get Ingredient Id With Invalid Id Then Returns ResourceNotFoundException")
-    public void whenGetIngredientByIdWithInvalidIdThenReturnsResourceNotFoundException(){
+    public void whenGetIngredientByIdWithInvalidIdThenReturnsResourceNotFoundException() {
         //Arrange
         Long id = 5L;
         String template = "Resource %s not found for %s with value %s";
@@ -64,7 +64,7 @@ public class IngredientServiceImpIntegrationTest {
         String expectedMessage = String.format(template, "Ingredient", "Id", id);
 
         //Act
-        Throwable exception = catchThrowable(()->{
+        Throwable exception = catchThrowable(() -> {
             Ingredients ingredient = ingredientsService.getIngredientsById(id);
         });
 

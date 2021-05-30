@@ -22,7 +22,7 @@ public class RecipeController {
     public ResponseEntity<Recipe> fetchById(@PathVariable("id") Long id) {
         try {
             Optional<Recipe> optionalRecipe = recipeService.findById(id);
-            if(optionalRecipe.isPresent()){
+            if (optionalRecipe.isPresent()) {
                 return new ResponseEntity<Recipe>(optionalRecipe.get(), HttpStatus.OK);
             } else {
                 return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -35,12 +35,12 @@ public class RecipeController {
     //Falta Title
     //Falta Name
     @GetMapping(path = "/title/{title}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Recipe> fetchById(@PathVariable("title") String title){
+    public ResponseEntity<Recipe> fetchById(@PathVariable("title") String title) {
         try {
             Optional<Recipe> optionalRecipe = recipeService.findbyTitle(title);
-            if (optionalRecipe.isPresent()){
+            if (optionalRecipe.isPresent()) {
                 return ResponseEntity.ok(optionalRecipe.get());
-            } else{
+            } else {
                 return ResponseEntity.notFound().build();
             }
         } catch (Exception e) {
@@ -77,12 +77,12 @@ public class RecipeController {
     }
 
     @DeleteMapping(value = "/{id}")
-    public ResponseEntity<Recipe> deleteById(@PathVariable("id") Long id){
+    public ResponseEntity<Recipe> deleteById(@PathVariable("id") Long id) {
 
 
         try {
             Optional<Recipe> optionalRecipe = recipeService.findById(id);
-            if(optionalRecipe.isPresent()){
+            if (optionalRecipe.isPresent()) {
                 recipeService.deleteById(id);
                 return new ResponseEntity<Recipe>(HttpStatus.OK);
             } else {

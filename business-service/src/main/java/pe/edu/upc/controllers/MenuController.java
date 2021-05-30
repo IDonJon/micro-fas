@@ -23,7 +23,7 @@ public class MenuController {
     public ResponseEntity<Menu> fetchById(@PathVariable("id") Long id) {
         try {
             Optional<Menu> optionalMenu = menuService.findById(id);
-            if(optionalMenu.isPresent()){
+            if (optionalMenu.isPresent()) {
                 return new ResponseEntity<Menu>(optionalMenu.get(), HttpStatus.OK);
             } else {
                 return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -61,12 +61,12 @@ public class MenuController {
     }
 
     @DeleteMapping(value = "/{id}")
-    public ResponseEntity<Menu> deleteById(@PathVariable("id") Long id){
+    public ResponseEntity<Menu> deleteById(@PathVariable("id") Long id) {
 
 
         try {
             Optional<Menu> optionalMenu = menuService.findById(id);
-            if(optionalMenu.isPresent()){
+            if (optionalMenu.isPresent()) {
                 menuService.deleteById(id);
                 return new ResponseEntity<Menu>(HttpStatus.OK);
             } else {

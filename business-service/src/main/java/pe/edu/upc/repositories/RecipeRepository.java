@@ -6,6 +6,7 @@ import pe.edu.upc.entities.Ingredients;
 import pe.edu.upc.entities.Recipe;
 
 import java.util.Optional;
+
 @Repository
 public interface RecipeRepository extends JpaRepository<Recipe, Long> {
     Optional<Recipe> findByTitle(String title);

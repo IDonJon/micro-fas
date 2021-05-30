@@ -33,9 +33,9 @@ public class MenuServiceImpIntegrationTest {
     private MenuService menuService;
 
     @TestConfiguration
-    static class  MenuServiceImpTestConfiguration {
+    static class MenuServiceImpTestConfiguration {
         @Bean
-        public MenuService menuService(){
+        public MenuService menuService() {
             return new MenuServiceImplementation();
         }
     }
@@ -45,7 +45,7 @@ public class MenuServiceImpIntegrationTest {
     public void whenGetPublicationByIdWithValidIdThenReturnsPublication() throws ParseException {
         //Arrange
         Menu menu = new Menu();
-        Date date= new SimpleDateFormat("dd/MM/yyyy").parse("28/10/2020");
+        Date date = new SimpleDateFormat("dd/MM/yyyy").parse("28/10/2020");
         menu.setId(1L);
         menu.setDateOfRecipe(date);
         when(menuRepository.findById(1L)).thenReturn(Optional.of(menu));
@@ -60,7 +60,7 @@ public class MenuServiceImpIntegrationTest {
 
     @Test
     @DisplayName("When GetMenuById With Invalid Id Then Returns ResourceNotFoundException")
-    public void whenGetMenuByIdWithInvalidIdThenReturnsResourceNotFoundException(){
+    public void whenGetMenuByIdWithInvalidIdThenReturnsResourceNotFoundException() {
         //Arrange
         Long id = 1L;
         String template = "Resource %s not found for %s with value %s";
@@ -68,7 +68,7 @@ public class MenuServiceImpIntegrationTest {
         String expectedMessage = String.format(template, "Menu", "Id", id);
 
         //Act
-        Throwable exception = catchThrowable(()->{
+        Throwable exception = catchThrowable(() -> {
             Menu menu = menuService.getMenuById(id);
         });
 

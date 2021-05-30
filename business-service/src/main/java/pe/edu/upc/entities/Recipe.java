@@ -8,7 +8,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name="recipes")
+@Table(name = "recipes")
 @Data
 public class Recipe {
     @Id
@@ -17,9 +17,9 @@ public class Recipe {
     private Long Id;
 
     @Column(name = "title", length = 40, nullable = false)
-    private  String title;
+    private String title;
     @Column(name = "description", length = 40, nullable = false)
-    private  String description;
+    private String description;
     @Column(name = "content", length = 400, nullable = false)
     private String content;
     @Column(name = "url_picture", length = 400, nullable = false)
@@ -27,7 +27,7 @@ public class Recipe {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "menu_id")
-    @JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private Menu menu;
 
 }
