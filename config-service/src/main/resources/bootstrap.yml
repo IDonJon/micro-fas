@@ -5,7 +5,7 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/upc-is/fas-spring-micro-ms.git
+          uri: https://github.com/IDonJon/micro-fas.git
           searchPaths: config-data
           username: ${GIT_USER}
           password: ${GIT_PASSWORD}
